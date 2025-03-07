@@ -1,7 +1,10 @@
 pipeline {
+    parameters{
+        choice(name: 'ENV', choices: ['-chrome', '-firefox'], description: 'Environment de test')
+    }
     agent {
         docker {
-            image 'selenium/standalone:latest'
+            image 'selenium/standalone${params.ENV}:latest'
             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  // Permet à Docker d'utiliser le socket de l'hôte
         }
     }
@@ -26,7 +29,7 @@ pipeline {
                 script {
                     // Exécuter les tests Maven dans le conteneur
                    
-                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="firefox"'
+                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="${params.ENV}"'
                     sh 'cat reports/cucumber-report.json'
                 }
             }
