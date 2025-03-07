@@ -1,9 +1,11 @@
 package com.logwire.tools;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
@@ -12,14 +14,14 @@ public class WebDriverTool {
 
     static public WebDriver driver;
 
-    static public void setUpDriver(){
+    static public void setUpDriver() {
         String browser = System.getProperty("browser", "chrome");
         switch (browser.toLowerCase()) {
             case "chrome":
                 try {
                     // Créer un répertoire temporaire unique pour chaque session de Chrome
                     Path tempDir = Files.createTempDirectory("chrome-user-data-dir");
-                    
+
                     // Options de Chrome
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--user-data-dir=" + tempDir.toAbsolutePath().toString());
@@ -36,14 +38,16 @@ public class WebDriverTool {
 
             case "firefox":
                 try {
-                    // Créer un répertoire temporaire unique pour chaque session de Firefox (similaire à Chrome)
+                    // Créer un répertoire temporaire unique pour chaque session de Firefox
                     Path tempDir = Files.createTempDirectory("firefox-user-data-dir");
-                    
+
                     // Options de Firefox
                     FirefoxOptions options = new FirefoxOptions();
                     options.addArguments("--headless");  // Exécution sans interface graphique
                     options.addArguments("--no-sandbox"); // Souvent nécessaire dans les environnements Docker
-                    options.setProfile(new org.openqa.selenium.firefox.FirefoxProfile(new java.io.File(tempDir.toAbsolutePath().toString()))); // Utiliser un profil utilisateur temporaire
+
+                    // Configurer GeckoDriver (pas besoin de chemin explicite si géocodriver est dans le path)
+                    System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 
                     // Utiliser Firefox avec ces options
                     driver = new FirefoxDriver(options);
@@ -62,12 +66,12 @@ public class WebDriverTool {
         driver.manage().window().maximize();
     }
 
-    static public WebDriver getDriver(){
+    static public WebDriver getDriver() {
         return driver;
     }
 
-    static public void tearDown(){
-        if (driver != null){
+    static public void tearDown() {
+        if (driver != null) {
             driver.quit();
             driver = null;
         }
