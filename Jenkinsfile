@@ -1,9 +1,16 @@
 pipeline {
-    agent any
-    parameters{
-        choice(name: 'ENV', choices: ['-chrome', '-firefox'], description: 'Environment de test')
+    parameters {
+        choice(name: 'ENV', choices: ['-chrome', 'node-firefox'], description: 'Environment de test')
     }
-    
+
+    agent {
+        docker {
+            // Utilisation de la substitution de la variable `${params.ENV}` pour définir l'image Docker
+            image "selenium/standalone${params.ENV}:latest"
+            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  // Permet à Docker d'utiliser le socket de l'hôte
+        }
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
@@ -20,17 +27,18 @@ pipeline {
                 }
             }
         }
+
         stage('Run Tests') {
             steps {
                 script {
                     // Exécuter les tests Maven dans le conteneur
-                   
                     sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="${params.ENV}"'
                     sh 'cat reports/cucumber-report.json'
                 }
             }
         }
     }
+
     post {
         always {
             script {
@@ -40,11 +48,11 @@ pipeline {
                     skippedStepsNumber: 1,
                     failedStepsNumber: 1,
                     classifications: [
-                     [key: 'Commit', value: 'Commit ID non disponible'],
-                       [key: 'Submitter', value: 'Nom du soumetteur non disponible']
+                        [key: 'Commit', value: 'Commit ID non disponible'],
+                        [key: 'Submitter', value: 'Nom du soumetteur non disponible']
                     ],
                     reportTitle: 'My report',
-                    fileIncludePattern:  'reports/cucumber-report.json',
+                    fileIncludePattern: 'reports/cucumber-report.json',
                     sortingMethod: 'ALPHABETICAL',
                     trendsLimit: 100
 
