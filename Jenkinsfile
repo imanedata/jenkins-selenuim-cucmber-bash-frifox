@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'selenium/standalone-chrome'
+            image 'selenium/standalone:latest'
             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  // Permet à Docker d'utiliser le socket de l'hôte
         }
     }
@@ -26,7 +26,7 @@ pipeline {
                 script {
                     // Exécuter les tests Maven dans le conteneur
                    
-                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="chrome"'
+                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="firefox"'
                     sh 'cat reports/cucumber-report.json'
                 }
             }
