@@ -12,6 +12,7 @@ RUN apt-get update && \
 
 # Ajouter un volume pour le ChromeDriver
 VOLUME ["/drivers:/usr/local/bin/chromedriver"]
+VOLUME ["/home/seluser/.cache/selenium/chrome/user-data:/home/seluser/.cache/selenium/chrome/user-data"]
 
 # Créer le répertoire de cache pour Selenium et ajuster les permissions
 RUN mkdir -p /home/seluser/.cache/selenium && \
@@ -37,6 +38,7 @@ RUN apt-get update && \
 
 # Ajouter un volume pour le FirefoxDriver
 VOLUME ["/drivers:/usr/local/bin/geckodriver"]
+VOLUME ["/home/seluser/.cache/selenium/firefox/user-data:/home/seluser/.cache/selenium/firefox/user-data"]
 
 # Créer le répertoire de cache pour Selenium et ajuster les permissions
 RUN mkdir -p /home/seluser/.cache/selenium && \
