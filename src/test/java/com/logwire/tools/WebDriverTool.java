@@ -1,9 +1,9 @@
 package com.logwire.tools;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
@@ -18,16 +18,14 @@ public class WebDriverTool {
             case "chrome":
                 try {
                     // Créer un répertoire temporaire unique pour chaque session de Chrome
-                    // Vous pouvez enlever cette partie si vous ne souhaitez pas utiliser --user-data-dir
                     Path tempDir = Files.createTempDirectory("chrome-user-data-dir");
                     
                     // Options de Chrome
                     ChromeOptions options = new ChromeOptions();
-                    // Si vous ne voulez pas utiliser le --user-data-dir, vous pouvez le commenter
                     options.addArguments("--user-data-dir=" + tempDir.toAbsolutePath().toString());
-                    options.addArguments("--headless");  // Facultatif : exécuter Chrome sans interface graphique
-                    options.addArguments("--disable-gpu"); // Facultatif : utile dans les environnements sans GPU
-                    options.addArguments("--no-sandbox");  // Facultatif : souvent nécessaire dans les conteneurs Docker
+                    options.addArguments("--headless");  // Exécution sans interface graphique
+                    options.addArguments("--disable-gpu"); // Utile dans les environnements sans GPU
+                    options.addArguments("--no-sandbox");  // Souvent nécessaire dans les conteneurs Docker
 
                     // Utiliser Chrome avec ces options
                     driver = new ChromeDriver(options);
@@ -37,9 +35,23 @@ public class WebDriverTool {
                 break;
 
             case "firefox":
-                driver = new FirefoxDriver();
+                try {
+                    // Créer un répertoire temporaire unique pour chaque session de Firefox (similaire à Chrome)
+                    Path tempDir = Files.createTempDirectory("firefox-user-data-dir");
+                    
+                    // Options de Firefox
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.addArguments("--headless");  // Exécution sans interface graphique
+                    options.addArguments("--no-sandbox"); // Souvent nécessaire dans les environnements Docker
+                    options.setProfile(new org.openqa.selenium.firefox.FirefoxProfile(new java.io.File(tempDir.toAbsolutePath().toString()))); // Utiliser un profil utilisateur temporaire
+
+                    // Utiliser Firefox avec ces options
+                    driver = new FirefoxDriver(options);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
-                
+
             default:
                 // Par défaut, utiliser Chrome sans options si le navigateur spécifié n'est pas supporté
                 driver = new ChromeDriver();
