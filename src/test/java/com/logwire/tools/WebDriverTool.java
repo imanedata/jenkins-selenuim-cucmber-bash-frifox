@@ -15,7 +15,9 @@ public class WebDriverTool {
     static public WebDriver driver;
 
     static public void setUpDriver() {
-        String browser = System.getProperty("browser", "chrome");
+        // Récupérer la propriété 'browser' depuis les arguments de système, avec un fallback à 'chrome'
+        String browser = System.getProperty("browser", "chrome"); // Si "browser" n'est pas défini, il prendra "chrome"
+
         switch (browser.toLowerCase()) {
             case "chrome":
                 try {
@@ -44,10 +46,8 @@ public class WebDriverTool {
                     // Options de Firefox
                     FirefoxOptions options = new FirefoxOptions();
                     options.addArguments("--headless");  // Exécution sans interface graphique
+                    options.addArguments("--disable-gpu"); // Utile dans les environnements sans GPU
                     options.addArguments("--no-sandbox"); // Souvent nécessaire dans les environnements Docker
-
-                    // Configurer GeckoDriver (pas besoin de chemin explicite si géocodriver est dans le path)
-                    System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 
                     // Utiliser Firefox avec ces options
                     driver = new FirefoxDriver(options);
@@ -57,7 +57,7 @@ public class WebDriverTool {
                 break;
 
             default:
-                // Par défaut, utiliser Chrome sans options si le navigateur spécifié n'est pas supporté
+                // Si le navigateur spécifié n'est pas reconnu, on utilise Chrome par défaut
                 driver = new ChromeDriver();
                 break;
         }
@@ -77,3 +77,4 @@ public class WebDriverTool {
         }
     }
 }
+

@@ -1,0 +1,359 @@
+# Created at 2025-03-07T17:27:51.147
+Exiting self fork JVM. Received SHUTDOWN command from Maven shutdown hook.
+Thread dump before exiting the process (23572@DESKTOP-1D1ORTK):
+"main" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/java.lang.ProcessImpl.waitForTimeoutInterruptibly(Native Method)
+        at java.base@23.0.2/java.lang.ProcessImpl.waitFor(ProcessImpl.java:604)
+        at app//org.openqa.selenium.os.ExternalProcess.waitFor(ExternalProcess.java:291)
+        at app//org.openqa.selenium.manager.SeleniumManager.runCommand(SeleniumManager.java:144)
+        at app//org.openqa.selenium.manager.SeleniumManager.getBinaryPaths(SeleniumManager.java:254)
+        at app//org.openqa.selenium.remote.service.DriverFinder.getBinaryPaths(DriverFinder.java:102)
+        at app//org.openqa.selenium.remote.service.DriverFinder.getDriverPath(DriverFinder.java:55)
+        at app//org.openqa.selenium.firefox.FirefoxDriver.generateExecutor(FirefoxDriver.java:141)
+        at app//org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:132)
+        at app//org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:127)
+        at app//org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:112)
+        at app//com.logwire.tools.WebDriverTool.setUpDriver(WebDriverTool.java:53)
+        at app//com.logwire.hooks.Hooks.beforeEachSenario(Hooks.java:17)
+        at java.base@23.0.2/java.lang.invoke.LambdaForm$DMH/0x0000017db7398000.invokeVirtual(LambdaForm$DMH)
+        at java.base@23.0.2/java.lang.invoke.LambdaForm$MH/0x0000017db7398800.invoke(LambdaForm$MH)
+        at java.base@23.0.2/java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+        at java.base@23.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:153)
+        at java.base@23.0.2/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base@23.0.2/java.lang.reflect.Method.invoke(Method.java:580)
+        at app//io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+        at app//io.cucumber.java.Invoker.invoke(Invoker.java:24)
+        at app//io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+        at app//io.cucumber.java.JavaHookDefinition.execute(JavaHookDefinition.java:64)
+        at app//io.cucumber.core.runner.CoreHookDefinition.execute(CoreHookDefinition.java:46)
+        at app//io.cucumber.core.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:21)
+        at app//io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+        at app//io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+        at app//io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+        at app//io.cucumber.core.runner.TestCase.run(TestCase.java:78)
+        at app//io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+        at app//io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.lambda$runTestCase$4(CucumberEngineExecutionContext.java:112)
+        at app//io.cucumber.junit.platform.engine.CucumberEngineExecutionContext$$Lambda/0x0000017db737aa08.accept(Unknown Source)
+        at app//io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:130)
+        at app//io.cucumber.core.runtime.CucumberExecutionContext$$Lambda/0x0000017db737ac40.run(Unknown Source)
+        at app//io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+        at app//io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:130)
+        at app//io.cucumber.junit.platform.engine.CucumberEngineExecutionContext.runTestCase(CucumberEngineExecutionContext.java:109)
+        at app//io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:164)
+        at app//io.cucumber.junit.platform.engine.NodeDescriptor$PickleDescriptor.execute(NodeDescriptor.java:90)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710f3d8.execute(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710f1b0.invoke(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710ef88.execute(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+        at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda/0x0000017db73788a8.accept(Unknown Source)
+        at java.base@23.0.2/java.util.ArrayList.forEach(ArrayList.java:1597)
+        at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710f3d8.execute(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710f1b0.invoke(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710ef88.execute(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+        at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda/0x0000017db73788a8.accept(Unknown Source)
+        at java.base@23.0.2/java.util.ArrayList.forEach(ArrayList.java:1597)
+        at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710f3d8.execute(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710f1b0.invoke(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda/0x0000017db710ef88.execute(Unknown Source)
+        at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+        at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+        at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+        at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+        at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+        at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+        at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+        at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+        at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:73)
+        at app//org.junit.platform.suite.engine.SuiteLauncher.execute(SuiteLauncher.java:63)
+        at app//org.junit.platform.suite.engine.SuiteTestDescriptor.execute(SuiteTestDescriptor.java:128)
+        at app//org.junit.platform.suite.engine.SuiteTestEngine.lambda$execute$0(SuiteTestEngine.java:73)
+        at app//org.junit.platform.suite.engine.SuiteTestEngine$$Lambda/0x0000017db7110fc0.accept(Unknown Source)
+        at java.base@23.0.2/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+        at java.base@23.0.2/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+        at java.base@23.0.2/java.util.Iterator.forEachRemaining(Iterator.java:133)
+        at java.base@23.0.2/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1939)
+        at java.base@23.0.2/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+        at java.base@23.0.2/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+        at java.base@23.0.2/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+        at java.base@23.0.2/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+        at java.base@23.0.2/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        at java.base@23.0.2/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:636)
+        at app//org.junit.platform.suite.engine.SuiteTestEngine.execute(SuiteTestEngine.java:73)
+
+"Reference Handler" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+        at java.base@23.0.2/java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+        at java.base@23.0.2/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+"Finalizer" 
+   java.lang.Thread.State: WAITING
+        at java.base@23.0.2/java.lang.Object.wait0(Native Method)
+        at java.base@23.0.2/java.lang.Object.wait(Object.java:378)
+        at java.base@23.0.2/java.lang.Object.wait(Object.java:352)
+        at java.base@23.0.2/java.lang.ref.NativeReferenceQueue.await(NativeReferenceQueue.java:48)
+        at java.base@23.0.2/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:166)
+        at java.base@23.0.2/java.lang.ref.NativeReferenceQueue.remove(NativeReferenceQueue.java:89)
+        at java.base@23.0.2/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:173)
+
+"Signal Dispatcher" 
+   java.lang.Thread.State: RUNNABLE
+
+"Attach Listener" 
+   java.lang.Thread.State: RUNNABLE
+
+"Notification Thread" 
+   java.lang.Thread.State: RUNNABLE
+
+"Common-Cleaner" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@23.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@23.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+        at java.base@23.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1852)
+        at java.base@23.0.2/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:79)
+        at java.base@23.0.2/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:151)
+        at java.base@23.0.2/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:229)
+        at java.base@23.0.2/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+        at java.base@23.0.2/java.lang.Thread.runWith(Thread.java:1588)
+        at java.base@23.0.2/java.lang.Thread.run(Thread.java:1575)
+        at java.base@23.0.2/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+"surefire-forkedjvm-stream-flusher" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@23.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@23.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+        at java.base@23.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+        at java.base@23.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+        at java.base@23.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+        at java.base@23.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+        at java.base@23.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+        at java.base@23.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base@23.0.2/java.lang.Thread.runWith(Thread.java:1588)
+        at java.base@23.0.2/java.lang.Thread.run(Thread.java:1575)
+
+"surefire-forkedjvm-command-thread" 
+   java.lang.Thread.State: RUNNABLE
+        at java.management@23.0.2/sun.management.ThreadImpl.getThreadInfo1(Native Method)
+        at java.management@23.0.2/sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:187)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.generateThreadDump(ForkedBooter.java:683)
+        at app//org.apache.maven.surefire.booter.ForkedBooter.access$600(ForkedBooter.java:80)
+        at app//org.apache.maven.surefire.booter.ForkedBooter$4.update(ForkedBooter.java:368)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.callListeners(CommandReader.java:426)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.exitByConfiguration(CommandReader.java:438)
+        at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:390)
+        at java.base@23.0.2/java.lang.Thread.runWith(Thread.java:1588)
+        at java.base@23.0.2/java.lang.Thread.run(Thread.java:1575)
+
+"ForkJoinPool.commonPool-worker-1" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@23.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@23.0.2/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2137)
+        at java.base@23.0.2/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2101)
+        at java.base@23.0.2/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2045)
+        at java.base@23.0.2/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+"HttpClient-1-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"CompletableFutureDelayScheduler" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.base@23.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+        at java.base@23.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+        at java.base@23.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+        at java.base@23.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+        at java.base@23.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+        at java.base@23.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+        at java.base@23.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+        at java.base@23.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base@23.0.2/java.lang.Thread.runWith(Thread.java:1588)
+        at java.base@23.0.2/java.lang.Thread.run(Thread.java:1575)
+
+"HttpClient-3-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-40-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-42-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-43-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-44-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-45-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-46-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-47-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-48-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-49-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-50-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-51-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-52-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-53-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-54-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-55-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-56-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"HttpClient-57-SelectorManager" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/sun.nio.ch.WEPoll.wait(Native Method)
+        at java.base@23.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:114)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+        at java.base@23.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+        at platform/java.net.http@23.0.2/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1377)
+
+"External Process Output Forwarder - C:\Users\User\.cache\selenium\manager\0.4.28\selenium-manager.exe" 
+   java.lang.Thread.State: RUNNABLE
+        at java.base@23.0.2/java.io.FileInputStream.readBytes(Native Method)
+        at java.base@23.0.2/java.io.FileInputStream.read(FileInputStream.java:328)
+        at java.base@23.0.2/java.lang.Process$PipeInputStream.read(Process.java:868)
+        at java.base@23.0.2/java.io.InputStream.transferTo(InputStream.java:796)
+        at java.base@23.0.2/java.io.FileInputStream.transferTo(FileInputStream.java:428)
+        at java.base@23.0.2/java.io.BufferedInputStream.implTransferTo(BufferedInputStream.java:656)
+        at java.base@23.0.2/java.io.BufferedInputStream.transferTo(BufferedInputStream.java:631)
+        at app//org.openqa.selenium.os.ExternalProcess$Builder.lambda$start$0(ExternalProcess.java:218)
+        at app//org.openqa.selenium.os.ExternalProcess$Builder$$Lambda/0x0000017db73aa990.run(Unknown Source)
+        at java.base@23.0.2/java.lang.Thread.runWith(Thread.java:1588)
+        at java.base@23.0.2/java.lang.Thread.run(Thread.java:1575)
+
+
+
