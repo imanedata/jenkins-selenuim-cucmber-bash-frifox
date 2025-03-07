@@ -1,6 +1,7 @@
 pipeline {
     parameters {
         choice(name: 'ENV', choices: ['-chrome', 'node-firefox'], description: 'Environment de test')
+        choice(name: 'ENVE', choices: ['chrome', 'firefox'], description: 'Environment de test')
     }
 
     agent {
@@ -32,7 +33,7 @@ pipeline {
             steps {
                 script {
                     // Exécuter les tests Maven dans le conteneur
-                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="${params.ENV}"'
+                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser="${params.ENVE}"'
                     sh 'cat reports/cucumber-report.json'
                 }
             }
