@@ -1,13 +1,9 @@
 pipeline {
+    agent any
     parameters{
         choice(name: 'ENV', choices: ['-chrome', '-firefox'], description: 'Environment de test')
     }
-    agent {
-        docker {
-            image 'selenium/standalone${params.ENV}:latest'
-            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  // Permet à Docker d'utiliser le socket de l'hôte
-        }
-    }
+    
     stages {
         stage('Install Dependencies') {
             steps {
