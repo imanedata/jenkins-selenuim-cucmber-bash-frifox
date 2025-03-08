@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     // Exécuter les tests Maven dans le conteneur
-                    sh 'mvn test -D cucumber.plugin="json:reports/cucumber-report.json" -D browser=${params.ENVE}'
+                    sh  "mvn test -D cucumber.plugin='json:reports/cucumber-report.json' -D browser='firefox'"
                     sh 'cat reports/cucumber-report.json'
                 }
             }
