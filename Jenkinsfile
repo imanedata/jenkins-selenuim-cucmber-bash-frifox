@@ -1,7 +1,7 @@
 pipeline {
     parameters {
         choice(name: 'ENV', choices: ['standalone-chrome', 'node-firefox'], description: 'Environment de test')
-        choice(name: 'ENVE', choices: ['chrome', 'firefox'], description: 'Environment de test')
+       // choice(name: 'ENVE', choices: ['chrome', 'firefox'], description: 'Environment de test')
     }
 
     agent {
