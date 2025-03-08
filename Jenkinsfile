@@ -1,13 +1,13 @@
 pipeline {
     parameters {
-        choice(name: 'ENV', choices: ['-chrome', 'node-firefox'], description: 'Environment de test')
+        choice(name: 'ENV', choices: ['standalone-chrome', 'node-firefox'], description: 'Environment de test')
         choice(name: 'ENVE', choices: ['chrome', 'firefox'], description: 'Environment de test')
     }
 
     agent {
         docker {
             // Utilisation de la substitution de la variable `${params.ENV}` pour définir l'image Docker
-            image "selenium/standalone${params.ENV}:latest"
+            image "selenium/${params.ENV}:latest"
             args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  // Permet à Docker d'utiliser le socket de l'hôte
         }
     }
